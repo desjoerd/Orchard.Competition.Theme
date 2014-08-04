@@ -1,0 +1,7 @@
+Name: Foundation
+Author: Sjoerd van der Meer
+Website: http://met.desjoerd.com
+Description: The most advanced responsive front-end framework in the world.
+Version: 1.0
+Tags: Zurb Foundation
+Zones: Branding, Navigation, Header, Content, AsideRight, Footer

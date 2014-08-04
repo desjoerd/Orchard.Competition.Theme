@@ -1,0 +1,29 @@
+﻿@using Orchard.ContentManagement
+@{
+    Layout.Title = "Inloggen";
+}
+
+@using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }))) {
+<fieldset class="login-form group">
+    <legend>@T("Account")</legend>
+
+    @Html.ValidationSummary(T("Inloggen is niet gelukt. Kijk of je gebruikersnaam of wachtwoord correct is ingevuld").ToString())
+
+    <ul class="no-bullet">
+        <li>
+            <label for="username-email">@T("Gebruikersnaam")</label>
+            @Html.TextBox("userNameOrEmail", "", new { id = "username-email", autofocus = "autofocus" })
+            @Html.ValidationMessage("userNameOrEmail")
+        </li>
+        <li>
+            <label for="password">@T("Wachtwoord")</label>
+            @Html.Password("password")
+            @Html.ValidationMessage("password")
+        </li>
+        <li>
+            <label class="forcheckbox" for="remember-me">@Html.CheckBox("rememberMe", new { id = "remember-me" })<span class="checkbox"> @T("Ingelogd blijven")</span></label>
+        </li>
+    </ul>
+    <button class="primaryAction" type="submit">@T("Inloggen")</button>
+</fieldset>
+}

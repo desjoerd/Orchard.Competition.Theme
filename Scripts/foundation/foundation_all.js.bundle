@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle minify="true" runOnBuild="true" output="foundation_all.js">
+  <!--The order of the <file> elements determines the order of them when bundled.-->
+
+  <file>/Scripts/foundation/foundation.js</file>
+  
+  <file>/Scripts/foundation/foundation.alerts.js</file>
+  <file>/Scripts/foundation/foundation.clearing.js</file>
+  <file>/Scripts/foundation/foundation.cookie.js</file>
+  <file>/Scripts/foundation/foundation.dropdown.js</file>
+  <file>/Scripts/foundation/foundation.forms.js</file>
+  <file>/Scripts/foundation/foundation.joyride.js</file>
+  <file>/Scripts/foundation/foundation.magellan.js</file>
+  <file>/Scripts/foundation/foundation.orbit.js</file>
+  <file>/Scripts/foundation/foundation.placeholder.js</file>
+  <file>/Scripts/foundation/foundation.reveal.js</file>
+  <file>/Scripts/foundation/foundation.section.js</file>
+  <file>/Scripts/foundation/foundation.tooltips.js</file>
+  <file>/Scripts/foundation/foundation.topbar.js</file>
+</bundle>

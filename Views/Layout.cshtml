@@ -1,0 +1,98 @@
+﻿@{
+    /* Global includes for the theme
+    ***************************************************************/
+    //<meta name="viewport" content="width=device-width">
+    SetMeta("viewport", "width=device-width");
+    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
+    Style.Require("openSans");
+    
+    Style.Include("Site.css");
+    Script.Require("jQuery").AtFoot();
+    Script.Require("modernizr").AtFoot();
+    Script.Require("foundation").AtFoot();
+    Script.Require("foundation_topbar").AtFoot();
+
+
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    //var title = Model.Content.FirstOrDefault().Title;
+
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+    WorkContext.Layout.Branding.Add(New.Branding(), "0"); // Site name and link to the home page
+    //WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Orchard
+    WorkContext.Layout.Navigation.Add(New.User(), "5"); // Login and dashboard links
+    //WorkContext.Layout.Navigation.Add(New.SearchNav(), "10"); // Search box (requires Search module)
+
+
+    /* Last bit of code to prep the layout wrapper
+    ***************************************************************/
+
+    Model.Id = "layout-wrapper";
+    var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
+}
+
+@tag.StartElement
+@if (Model.Header != null || Model.Navigation != null)
+{
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-options="custom_back_text: false">
+            <ul class="title-area">
+                @if (Model.Branding != null)
+                {
+                    <!-- Title Area -->
+                    <li class="name">
+                        @Zone(Model.Branding)
+                    </li>
+                }
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                @if (Model.Navigation != null)
+                {
+                    @Zone(Model.Navigation)
+                }
+            </section>
+        </nav>
+    </div>
+}
+
+@if (Layout.Header != null)
+{
+    @Zone(Model.Header)
+}
+<div class="row">
+    <div class="columns large-12">
+        <div class="row">
+            @if (Model.Content != null)
+            {
+                <div class="columns large-12">
+                    @Zone(Model.Content)
+                </div>
+            }
+        </div>
+    </div>
+@*    <div class="columns large-3">
+
+        <p>Hoi ik ben een widget</p>
+        <p>@Layout.Title</p>
+    </div>*@
+</div>
+
+@tag.EndElement
+
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+        $(function () {
+            $(document).foundation();
+        })
+    </script>
+}
