@@ -4,13 +4,13 @@
     //<meta name="viewport" content="width=device-width">
     SetMeta("viewport", "width=device-width");
     SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
-    Style.Require("openSans");
+    Style.Include("http://fonts.googleapis.com/css?family=Open+Sans:400,300");
     
     Style.Include("Site.css");
-    Script.Require("jQuery").AtFoot();
-    Script.Require("modernizr").AtFoot();
-    Script.Require("foundation").AtFoot();
-    Script.Require("foundation_topbar").AtFoot();
+    Script.Include("jQuery").AtFoot();
+    Script.Include("modernizr-2.6.2.js").AtFoot();
+    Script.Include("foundation/foundation.js").AtFoot();
+    Script.Include("foundation/foundation.topbar.js").AtFoot();
 
 
     /* Some useful shortcuts or settings
